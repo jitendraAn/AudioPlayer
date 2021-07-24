@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">AudioPlayer</string>
+
+    <string name="notification_channel">Now Playing</string>
+    <string name="notification_channel_description">Shows what music is currently playing in UAMP</string>
+
+    <!-- Notification actions -->
+    <string name="notification_skip_to_previous">Skip to previous track</string>
+    <string name="notification_skip_to_next">Skip to next track</string>
+    <string name="notification_play">Play</string>
+    <string name="notification_pause">Pause</string>
+
+    <!-- Error messages -->
+    <string name="error_media_not_found">Could not locate requested media.</string>
+    <string name="generic_error">The application has encountered an unexpected error.</string>
+    <!-- Allowed caller template -->
+    <string name="allowed_caller_log">
+        Caller has a valid certificate, but its package doesn\'t match any expected package for the
+        given certificate. To allow this caller, add the following to the allowed callers list:\n
+        <![CDATA[
+        <signature name=\"%1$s\" package=\"%2$s\">\n\t<key>%3$s</key>\n</signature>\n
+        ]]>
+    </string>
+
+    <!-- Cast menu item -->
+    <string name="media_route_menu_title">Cast</string>
+
+    <!-- Browse Tree -->
+    <string name="recommended_title">Recommended</string>
+    <string name="albums_title">Albums</string>
+
+    <string name="dialog_option">%1$dp - %2$s</string>
+    <string name="item_download_percentage">Size: %1$s | Progress: %2$d %%</string>
+
+    <string name="download_start_error">Failed to start download</string>
+    <string name="exo_download_queued">Download in queue</string>
+    <string name="exo_download_stopped">Download stopped</string>
+    <string name="exo_download_restarting">Download restarting</string>
+</resources>
