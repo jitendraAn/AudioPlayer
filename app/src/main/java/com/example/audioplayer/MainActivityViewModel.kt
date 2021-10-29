@@ -38,8 +38,7 @@ class MainActivityViewModel(
                             it.description.title.toString(),
                             it.description.subtitle.toString(),
                             it.description.mediaUri.toString(),
-                            false, 0,
-                            it.description.iconUri.toString(),null
+
                         )
                     }
                     _mediaItems.postValue(Resource.success(items))

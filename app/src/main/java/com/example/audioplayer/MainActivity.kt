@@ -56,14 +56,13 @@ class MainActivity : AppCompatActivity(), DownloadTracker.Listener {
         setContentView(R.layout.activity_main)
         var bd: Bundle = Bundle()
 
-        list = ArrayList<MediaItemData>()
+        val list = ArrayList<MediaItemData>()
         val mediaItemData = MediaItemData(
             "wake_up_01",
             "Intro - The Way Of Waking Up (feat. Alan Watts)",
             "Wake Up",
             "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
-            false, 0,
-            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",null
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
         )
         list!!.add(mediaItemData)
         val mediaItemData1 = MediaItemData(
@@ -71,9 +70,9 @@ class MainActivity : AppCompatActivity(), DownloadTracker.Listener {
             "Voyage I - Waterfall",
             "Wake Up",
             "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/03_-_Voyage_I_-_Waterfall.mp3",
-            false, 0,
+            imageURL =
             "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
-,null
+
         )
         list!!.add(mediaItemData1)
         val mediaItemData2 = MediaItemData(
@@ -81,11 +80,91 @@ class MainActivity : AppCompatActivity(), DownloadTracker.Listener {
             "Geisha",
             "The Kyoto Connection",
             "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
-            false, 0,
-            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
-            ,null
+
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
+
         )
         list!!.add(mediaItemData2)
+        val mediaItemData3 = MediaItemData(
+            "wake_up_04",
+            "Geisha",
+            "The Kyoto Connection",
+            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
+
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
+
+        )
+        list!!.add(mediaItemData3)
+        val mediaItemData4 = MediaItemData(
+            "wake_up_05",
+            "Geisha",
+            "The Kyoto Connection",
+            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
+
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
+
+        )
+        list!!.add(mediaItemData4)
+        val mediaItemData5 = MediaItemData(
+            "wake_up_06",
+            "Geisha",
+            "The Kyoto Connection",
+            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
+
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
+
+        )
+        list!!.add(mediaItemData5)
+        val mediaItemData6 = MediaItemData(
+            "wake_up_07",
+            "Geisha",
+            "The Kyoto Connection",
+            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
+
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
+
+        )
+        list!!.add(mediaItemData6)
+        val mediaItemData7 = MediaItemData(
+            "wake_up_08",
+            "Geisha",
+            "The Kyoto Connection",
+            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
+
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
+
+        )
+        list!!.add(mediaItemData7)
+        val mediaItemData8 = MediaItemData(
+            "wake_up_09",
+            "Geisha",
+            "The Kyoto Connection",
+            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
+
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
+
+        )
+        list!!.add(mediaItemData8)
+        val mediaItemData9 = MediaItemData(
+            "wake_up_10",
+            "Geisha",
+            "The Kyoto Connection",
+            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
+
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
+
+        )
+        list!!.add(mediaItemData9)
+        val mediaItemData10 = MediaItemData(
+            "wake_up_11",
+            "Geisha",
+            "The Kyoto Connection",
+            "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/02_-_Geisha.mp3",
+
+            imageURL = "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg"
+
+        )
+        list!!.add(mediaItemData10)
         try {
             DownloadService.start(this, MyDownloadService::class.java)
         } catch (e: IllegalStateException) {
@@ -142,26 +221,26 @@ class MainActivity : AppCompatActivity(), DownloadTracker.Listener {
                 .setTag(MediaItemTag(-1, it?.title!!))
                 .build()
 
-//
-            if (DownloadUtil.getDownloadTracker(this).isDownloaded(mediaItem)) {
-                Toast.makeText(this, "You've already downloaded the video", Toast.LENGTH_SHORT)
-//                    .setAction("Delete") {
-//                      //  DownloadUtil.getDownloadTracker(this@PlayerActivity).removeDownload(mediaItem.playbackProperties?.uri)
-//                    }
-                    .show()
-            } else {
-                val item = mediaItem.buildUpon()
-                    .setTag((mediaItem.playbackProperties?.tag as MediaItemTag).copy(duration = MusicService.curSongDuration))
-                    .build()
-                if (!DownloadUtil.getDownloadTracker(this)
-                        .hasDownload(item.playbackProperties?.uri)
-                ) {
-                    DownloadUtil.getDownloadTracker(this).toggleDownloadDialogHelper(this, item)
-                } else {
-//                    DownloadUtil.getDownloadTracker(this)
-//                        .toggleDownloadPopupMenu(this, this, item.playbackProperties?.uri)
-                }
-            }
+////
+//            if (DownloadUtil.getDownloadTracker(this).isDownloaded(mediaItem)) {
+//                Toast.makeText(this, "You've already downloaded the video", Toast.LENGTH_SHORT)
+////                    .setAction("Delete") {
+////                      //  DownloadUtil.getDownloadTracker(this@PlayerActivity).removeDownload(mediaItem.playbackProperties?.uri)
+////                    }
+//                    .show()
+//            } else {
+//                val item = mediaItem.buildUpon()
+//                    .setTag((mediaItem.playbackProperties?.tag as MediaItemTag).copy(duration = MusicService.curSongDuration))
+//                    .build()
+//                if (!DownloadUtil.getDownloadTracker(this)
+//                        .hasDownload(item.playbackProperties?.uri)
+//                ) {
+//                    DownloadUtil.getDownloadTracker(this).toggleDownloadDialogHelper(this, item)
+//                } else {
+////                    DownloadUtil.getDownloadTracker(this)
+////                        .toggleDownloadPopupMenu(this, this, item.playbackProperties?.uri)
+//                }
+//            }
 
         }
 

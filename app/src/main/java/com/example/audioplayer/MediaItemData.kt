@@ -19,6 +19,7 @@ package com.example.audioplayer
 import android.net.Uri
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.MediaBrowserCompat.MediaItem
+import androidx.recyclerview.widget.RecyclerView
 import com.example.audioplayer.adapter.BaseAdapter
 import com.example.audioplayer.adapter.SongAdapter
 import java.io.Serializable
@@ -33,15 +34,19 @@ import java.io.Serializable
  * [MediaItemFragmentViewModel.subscriptionCallback].
  */
 data class MediaItemData(
-    val mediaId: String,
-    val title: String,
-    val subtitle: String,
-    val songURL: String,
-    val browsable: Boolean,
-    var playbackRes: Int,
-    var imageURL: String,
-    var holder: BaseAdapter.SongViewHolder?
+    val mediaId: String="",
+    val title: String="",
+    val subtitle: String="",
+    var songURL: String="",
+    var imageURL: String="",
+    var download:Boolean=false,
+    var downloadingState:Boolean=false,
+    var percent:Int=0,
+    var holder: RecyclerView.ViewHolder?=null,
+    var status: String?="",
+    val projectId: String?="",
+    val albumId: String?="",
+    var isBlueIndicate:Boolean=false
 ) : Serializable {
 
 }
-

@@ -22,7 +22,7 @@ class SongAdapter : BaseAdapter(R.layout.song_item_layout) {
         val mediaItemData = songs.get(position)
 
         holder.itemView.apply {
-            textView.text = mediaItemData.title
+            textView.text = mediaItemData.mediaId
             textView2.text = mediaItemData.subtitle
             download_state
         }

@@ -8,8 +8,7 @@ fun MediaMetadataCompat.toSong(): MediaItemData? {
             it.mediaId ?: "",
             it.title.toString(),
             it.subtitle.toString(),
-            it.mediaUri.toString(),false,0,
-            it.iconUri.toString(),null
+            it.mediaUri.toString(),
         )
     }
 }

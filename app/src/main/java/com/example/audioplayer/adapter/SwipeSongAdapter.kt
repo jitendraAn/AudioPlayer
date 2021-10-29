@@ -16,7 +16,7 @@ class SwipeSongAdapter  : BaseAdapter(R.layout.swipe_item) {
         val mediaItemData = songs.get(position)
 
         holder.itemView.apply {
-            tv_song_name.text = mediaItemData.title
+            tv_song_name.text = mediaItemData.mediaId
             tv_subtitle.text = mediaItemData.subtitle
         }
         holder.itemView.setOnClickListener {
